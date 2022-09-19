@@ -1,0 +1,84 @@
+.sudoku {
+	width: max-content;
+
+	font-size: 2em;
+	font-family: monospace;
+}
+
+/* Grid */
+table, .controls {
+	margin: 2em;
+}
+
+td {
+	width: 2em;
+	height: 2em;
+
+	box-sizing: border-box;
+
+	text-align: center;
+	vertical-align: middle;
+
+	border: 1px solid black;
+}
+
+td.section-edge-top { border-top-width: 3px; }
+td.section-edge-bottom { border-bottom-width: 3px; }
+td.section-edge-left { border-left-width: 3px; }
+td.section-edge-right { border-right-width: 3px; }
+
+td {
+	color: rgba(0, 0, 255, 0.75);
+}
+
+td.constant {
+	color: rgba(0, 0, 0, 1);
+}
+
+td>* {
+	vertical-align: middle;
+}
+
+/* Controls */
+.controls {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	gap: 0.25em;
+}
+
+.controls button {
+	max-width: 2em;
+	font-size: 1.25rem;
+
+	margin: 0;
+	padding: 0;
+
+	aspect-ratio: 1 / 1;
+	box-sizing: border-box;
+}
+
+.controls button::after,
+.controls input[type="radio"]::after {
+	font-family: monospace;
+	position: absolute;
+}
+
+.controls.pen-mode .pencil-dependent .pencil-marking {
+	display: none;
+}
+
+.controls.pencil-mode .pencil-dependent .pen-marking {
+	display: none;
+}
+
+.controls .active,
+.controls.pencil-mode .pencil {
+	box-shadow: 0 0 4px 1px rgba(0, 0, 255, 0.75);
+}
+
+/* Markings */
+.invalid-row,
+.invalid-column,
+.invalid-section {
+	box-shadow: 0 0 4px 1px red inset;
+}
